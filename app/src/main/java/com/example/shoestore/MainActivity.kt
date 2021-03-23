@@ -3,6 +3,7 @@ package com.example.shoestore
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.ui.NavigationUI
 import com.example.shoestore.databinding.ActivityMainBinding
 import timber.log.Timber
 

@@ -1,17 +1,17 @@
-package com.example.shoestore.shoeList
+package com.example.shoestore.shoeDetail
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
+import com.example.shoestore.databinding.FragmentShoeDetailBinding
 import com.example.shoestore.databinding.FragmentShoeListBinding
 
-class ShoeListFragment : Fragment() {
 
+class ShoeDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,16 +19,12 @@ class ShoeListFragment : Fragment() {
     ): View? {
 
         // Inflate view and obtain an instance of the binding class.
-        val binding: FragmentShoeListBinding = DataBindingUtil.inflate(
+        val binding: FragmentShoeDetailBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_shoe_list,
+            R.layout.fragment_shoe_detail,
             container,
             false
         )
-
-        binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
-        }
 
         return binding.root
     }

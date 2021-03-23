@@ -13,6 +13,8 @@ import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
 import com.example.shoestore.login.login.LoggedInUserView
 import com.example.shoestore.login.login.LoginViewModel
@@ -36,6 +38,7 @@ class LoginFragment : Fragment() {
             container,
             false
         )
+
         return binding.root
     }
 
@@ -69,6 +72,7 @@ class LoginFragment : Fragment() {
                 }
                 loginResult.success?.let {
                     updateUiWithUser(it)
+                    findNavController().navigate(LoginFragmentDirections.actionLoginDestinationToWelcomeFragment2())
                 }
             })
 
