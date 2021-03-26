@@ -39,7 +39,7 @@ class WelcomeFragment: Fragment() {
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
-        menu.findItem(R.id.action_logout).setVisible(false)
+        menu.findItem(R.id.action_logout).isVisible = false
         super.onPrepareOptionsMenu(menu)
     }
 }

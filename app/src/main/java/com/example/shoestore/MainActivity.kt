@@ -10,8 +10,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.shoestore.databinding.ActivityMainBinding
-import com.example.shoestore.login.data.LoginRepository
-import com.example.shoestore.login.data.model.LoggedInUser
 import com.example.shoestore.login.login.LoginViewModel
 import com.example.shoestore.login.login.LoginViewModelFactory
 import timber.log.Timber
