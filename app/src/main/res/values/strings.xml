@@ -23,7 +23,7 @@
     <string name="instructions_button_text">Instructions</string>
     <string name="instructions_title_text">Instructions</string>
     <string name="shoe_list_button">Shoe List</string>
-    <string name="instructions_body_text">Please click below for the list of shoes.</string>
+    <string name="instructions_body_text">Please click below for the list of shoes.\n\nIn the shoe list you may add shoes by clicking the plus button\n\nYou will then have the opportunity to enter the data for a new shoe which will appear in the list</string>
     <string name="fab_shoe_detail_description">floating action button for shoe detail</string>
     <string name="shoe_name_label_text">Shoe Name:</string>
     <string name="company_label_text">Company:</string>

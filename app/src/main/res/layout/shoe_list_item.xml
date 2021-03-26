@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/itemShoeNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:maxEms="10"
+            android:maxLines="1"
+            android:minEms="10"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Downshifter" />
+
+        <TextView
+            android:id="@+id/itemShoeCompanyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:maxEms="8"
+            android:maxLines="1"
+            android:minEms="8"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Nike" />
+
+        <TextView
+            android:id="@+id/itemShoeSizeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxEms="4"
+            android:maxLines="1"
+            android:minEms="3"
+            android:padding="@dimen/default_padding"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="10" />
+
+        <TextView
+            android:id="@+id/itemShoeDescriptionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:maxEms="10"
+            android:maxLines="3"
+            android:minEms="10"
+            android:padding="@dimen/default_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:text="A high performance running shoe for men women and kids.  Comes in a variety of colors." />
+    </LinearLayout>
+</layout>

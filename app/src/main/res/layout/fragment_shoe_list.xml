@@ -4,35 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".shoeList.ShoeListFragment">
 
-    <ScrollView
+    <data>
+
+        <variable
+            name="shoeListViewModel"
+            type="com.example.shoestore.shoeList.ShoeListViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/shoe_list_linear_layout"
-            android:layout_width="match_parent"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addShoeFAB"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/default_margin"
+            android:clickable="true"
+            android:contentDescription="@string/fab_shoe_detail_description"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                style="@style/Widget.Design.FloatingActionButton"
-                android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/shoeListScrollView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <LinearLayout
+                android:id="@+id/shoe_list_linear_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_margin="@dimen/default_margin"
-                android:clickable="true"
-                android:contentDescription="@string/fab_shoe_detail_description"
-                android:focusable="true"
-                android:src="@android:drawable/ic_menu_info_details"
-                android:tint="@color/white"
-                app:elevation="4dp"
-                app:fabSize="auto" />
-        </LinearLayout>
+                android:orientation="vertical">
 
 
+            </LinearLayout>
 
-    </ScrollView>
 
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
