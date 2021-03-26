@@ -1,6 +1,7 @@
 package com.example.shoestore.login.data
 
 import com.example.shoestore.login.data.model.LoggedInUser
+import timber.log.Timber
 
 /**
  * Class that requests authentication and user information from the remote data source and
@@ -25,6 +26,7 @@ class LoginRepository(val dataSource: LoginDataSource) {
     fun logout() {
         user = null
         dataSource.logout()
+        Timber.i("User is now logged out")
     }
 
     fun login(username: String, password: String): Result<LoggedInUser> {

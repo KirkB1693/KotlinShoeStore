@@ -4,13 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
 import com.example.shoestore.databinding.FragmentShoeListBinding
@@ -25,7 +22,7 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         // Inflate view and obtain an instance of the binding class.
         binding = DataBindingUtil.inflate(
@@ -44,7 +41,7 @@ class ShoeListFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         // Sets up event listening to display the shoes in the list when the list changes
-        viewModel.shoeListForDisplay.observe(viewLifecycleOwner, Observer { shoeList ->
+        viewModel.shoeListForDisplay.observe(viewLifecycleOwner, { shoeList ->
             if (shoeList.isNotEmpty()) {
                 // Iterate through list and display shoes
                     var oddItem = true

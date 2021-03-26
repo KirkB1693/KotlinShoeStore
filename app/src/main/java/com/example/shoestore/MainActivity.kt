@@ -1,18 +1,19 @@
 package com.example.shoestore
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.shoestore.databinding.ActivityMainBinding
+import com.example.shoestore.login.data.LoginRepository
+import com.example.shoestore.login.data.model.LoggedInUser
+import com.example.shoestore.login.login.LoginViewModel
+import com.example.shoestore.login.login.LoginViewModelFactory
 import timber.log.Timber
 
 
@@ -52,6 +53,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_logout -> {
+                val loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
+                    .get(LoginViewModel::class.java)
+                loginViewModel.logout()
                 findNavController(R.id.myNavHostFragment).navigate(R.id.loginFragment)
                 true
             }

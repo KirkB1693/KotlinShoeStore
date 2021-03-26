@@ -1,14 +1,12 @@
 package com.example.shoestore.welcome
 
 import android.os.Bundle
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
 import com.example.shoestore.databinding.FragmentWelcomeBinding
@@ -19,7 +17,7 @@ class WelcomeFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate view and obtain an instance of the binding class.
         val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(
             inflater,
