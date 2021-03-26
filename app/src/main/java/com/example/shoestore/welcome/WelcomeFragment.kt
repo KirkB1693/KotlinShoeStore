@@ -3,6 +3,7 @@ package com.example.shoestore.welcome
 import android.os.Bundle
 import android.text.Layout
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -32,5 +33,15 @@ class WelcomeFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.findItem(R.id.action_logout).setVisible(false)
+        super.onPrepareOptionsMenu(menu)
     }
 }

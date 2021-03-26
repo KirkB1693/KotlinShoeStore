@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
 import com.example.shoestore.databinding.FragmentShoeListBinding
+import com.example.shoestore.databinding.ShoeListItemBinding
 
 class ShoeListFragment : Fragment() {
 
@@ -33,7 +34,6 @@ class ShoeListFragment : Fragment() {
             container,
             false
         )
-
 
         // Set the viewmodel for databinding - this allows the bound layout access to all of the
         // data in the VieWModel
@@ -63,24 +63,19 @@ class ShoeListFragment : Fragment() {
     }
 
     private fun displayShoe(oddItem: Boolean, shoe: Shoe) {
-        val itemLayout = LayoutInflater.from(context).inflate(R.layout.shoe_list_item, binding.shoeListLinearLayout, false)
+        val itemBinding: ShoeListItemBinding = DataBindingUtil.inflate(layoutInflater, R.layout.shoe_list_item, binding.shoeListLinearLayout,false)
 
-        val shoeNameTextView: TextView = itemLayout.findViewById(R.id.itemShoeNameText)
-        val shoeCompanyTextView: TextView = itemLayout.findViewById(R.id.itemShoeCompanyText)
-        val shoeSizeTextView: TextView = itemLayout.findViewById(R.id.itemShoeSizeText)
-        val shoeDescriptionTextView: TextView = itemLayout.findViewById(R.id.itemShoeDescriptionText)
-
-        shoeNameTextView.text = shoe.shoeName
-        shoeCompanyTextView.text = shoe.shoeCompany
-        shoeSizeTextView.text = shoe.shoeSize.toString()
-        shoeDescriptionTextView.text = shoe.shoeDescription
+        itemBinding.itemShoeNameText.text = shoe.shoeName
+        itemBinding.itemShoeCompanyText.text = shoe.shoeCompany
+        itemBinding.itemShoeSizeText.text = shoe.shoeSize.toString()
+        itemBinding.itemShoeDescriptionText.text = shoe.shoeDescription
 
         if (oddItem) {
-            itemLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.light_grey_background))
+            itemBinding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.light_grey_background))
         } else {
-            itemLayout.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.dark_grey_background))
+            itemBinding.root.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.dark_grey_background))
         }
 
-        binding.shoeListLinearLayout.addView(itemLayout)
+        binding.shoeListLinearLayout.addView(itemBinding.root)
     }
 }

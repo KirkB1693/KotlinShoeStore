@@ -35,6 +35,8 @@ class ShoeDetailFragment : Fragment() {
             false
         )
 
+        binding.shoeListViewModel = viewModel
+
         binding.cancelButton.setOnClickListener {
             findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
         }

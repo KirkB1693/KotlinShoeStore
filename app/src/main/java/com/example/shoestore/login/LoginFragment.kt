@@ -3,25 +3,25 @@ package com.example.shoestore.login
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.shoestore.R
+import com.example.shoestore.databinding.FragmentLoginBinding
 import com.example.shoestore.login.login.LoggedInUserView
 import com.example.shoestore.login.login.LoginViewModel
 import com.example.shoestore.login.login.LoginViewModelFactory
-import com.example.shoestore.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class LoginFragment: Fragment() {
 
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: FragmentLoginBinding
@@ -30,7 +30,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate view and obtain an instance of the binding class.
         binding = DataBindingUtil.inflate(
             inflater,
@@ -119,11 +119,21 @@ class LoginFragment : Fragment() {
                 binding.password.text.toString()
             )
         }
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.findItem(R.id.action_logout).setVisible(false)
+        super.onPrepareOptionsMenu(menu)
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome) + model.displayName
-        // TODO : initiate successful logged in experience
         val appContext = context?.applicationContext ?: return
         Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
     }
