@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".welcome.WelcomeFragment">
 
+    <!--    Although this was a fairly simple layout I chose Constraint Layout so that the views could adjust nicely to different sized screens and screen orientation-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

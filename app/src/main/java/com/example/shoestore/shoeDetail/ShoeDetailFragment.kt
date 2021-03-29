@@ -1,6 +1,13 @@
 package com.example.shoestore.shoeDetail
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Layout
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.AlignmentSpan
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,7 +42,11 @@ class ShoeDetailFragment : Fragment() {
             false
         )
 
+        binding.lifecycleOwner = this
+
         binding.shoeListViewModel = viewModel
+
+        binding.newShoe = Shoe()
 
         binding.cancelButton.setOnClickListener {
             findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
@@ -49,42 +60,96 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun addShoeToListIfValid() {
-        val shoeName = binding.shoeNameEditText.text.toString()
-        val shoeCompany = binding.shoeCompanyEditText.text.toString()
-        val shoeSize = binding.shoeSizeEditText.text.toString()
-        val shoeDescription = binding.shoeDescriptionEditText.text.toString()
 
-        if (shoeName.isNotEmpty()) {
-            if (shoeCompany.isNotEmpty()) {
-                if (shoeSize.isNotEmpty()) {
-                    if (shoeDescription.isNotEmpty()) {
-                        val newShoe = Shoe(shoeName, shoeCompany, shoeSize.toInt(), shoeDescription)
-                        viewModel.addShoeToList(newShoe)
+        if (binding.newShoe?.shoeName?.isNotEmpty() == true) {
+            if (binding.newShoe?.shoeCompany?.isNotEmpty() == true) {
+                if (binding.newShoe?.shoeSize?.isNotEmpty() == true) {
+                    if (binding.newShoe?.shoeDescription?.isNotEmpty() == true) {
+                        viewModel.addShoeToList(binding.newShoe!!)
                         findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
                     } else {
+                        var formattedText =
+                            SpannableString("Please enter a shoe description before saving!")
+                        formattedText.setSpan(
+                            AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+                            0,
+                            formattedText.length - 1,
+                            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                        )
+                        formattedText.setSpan(
+                            ForegroundColorSpan(Color.RED),
+                            0,
+                            formattedText.length,
+                            Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                        )
                         Toast.makeText(
                             context,
-                            "Please enter a shoe description before saving!",
+                            formattedText,
                             Toast.LENGTH_LONG
                         ).show()
                     }
                 } else {
+                    var formattedText = SpannableString("Please enter a shoe size before saving!")
+                    formattedText.setSpan(
+                        AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+                        0,
+                        formattedText.length - 1,
+                        Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                    )
+                    formattedText.setSpan(
+                        ForegroundColorSpan(Color.RED),
+                        0,
+                        formattedText.length,
+                        Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                    )
                     Toast.makeText(
                         context,
-                        "Please enter a shoe size before saving!",
+                        formattedText,
                         Toast.LENGTH_LONG
                     ).show()
+
                 }
             } else {
+                var formattedText = SpannableString("Please enter a shoe company before saving!")
+                formattedText.setSpan(
+                    AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+                    0,
+                    formattedText.length - 1,
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                )
+                formattedText.setSpan(
+                    ForegroundColorSpan(Color.RED),
+                    0,
+                    formattedText.length,
+                    Spannable.SPAN_INCLUSIVE_INCLUSIVE
+                )
                 Toast.makeText(
                     context,
-                    "Please enter a shoe company before saving!",
+                    formattedText,
                     Toast.LENGTH_LONG
                 ).show()
+
             }
         } else {
-            Toast.makeText(context, "Please enter a shoe name before saving!", Toast.LENGTH_LONG)
-                .show()
+            var formattedText = SpannableString("Please enter a shoe name before saving!")
+            formattedText.setSpan(
+                AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER),
+                0,
+                formattedText.length - 1,
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE
+            )
+            formattedText.setSpan(
+                ForegroundColorSpan(Color.RED),
+                0,
+                formattedText.length,
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE
+            )
+            Toast.makeText(
+                context,
+                formattedText,
+                Toast.LENGTH_LONG
+            ).show()
+
         }
     }
 }

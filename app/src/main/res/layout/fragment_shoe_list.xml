@@ -9,8 +9,10 @@
         <variable
             name="shoeListViewModel"
             type="com.example.shoestore.shoeList.ShoeListViewModel" />
+
     </data>
 
+    <!--   I chose Constraint Layout as this was a more complex layout and I wanted the FAB in the bottom right corner -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

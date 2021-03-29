@@ -64,7 +64,7 @@ class ShoeListFragment : Fragment() {
 
         itemBinding.itemShoeNameText.text = shoe.shoeName
         itemBinding.itemShoeCompanyText.text = shoe.shoeCompany
-        itemBinding.itemShoeSizeText.text = shoe.shoeSize.toString()
+        itemBinding.itemShoeSizeText.text = shoe.shoeSize
         itemBinding.itemShoeDescriptionText.text = shoe.shoeDescription
 
         if (oddItem) {
